@@ -38,7 +38,9 @@ class TaskBarIcon(wx.TaskBarIcon):
     #     print 'Tray icon was left-clicked.'
 
     def on_refresh(self, event):
-        check_email()
+        if not check_email():
+            wx.NotificationMessage(u"Обновление почты",
+                                   u"Новых сообщений нет...").Show()
 
     def on_exit(self, event):
         wx.CallAfter(self.Destroy)
@@ -53,9 +55,11 @@ def check_email():
         print length
         if length > 0:
             wx.NotificationMessage(u"Входящее сообщение", u"Войдите в свою почту и проверьте последнее сообщение").Show()
+            return 1
         else:
             check_file.close()
             os.remove(r'./tmp/LastMessage.txt')
+            return 0
     except Exception, e:
         pass
 
