@@ -5,8 +5,6 @@ from PyQt5.QtGui import QIcon
 import subprocess
 import time
 
-subprocess.Popen("python ./services/tray_service.py", shell=True)
-
 qtCreatorFile = './forms/settings.ui'  # Enter file here.
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
@@ -36,9 +34,12 @@ class Settings(QtWidgets.QMainWindow, Ui_MainWindow):
                             "\n" + "income_server=" + inc_host +
                             "\n" + "income_port=" + inc_port)
         finish_stream.close()
+        # Запуск процесса отпраки писем
         subprocess.Popen("python ./main_window.py", shell=True)
         time.sleep(1)
         window.showMinimized()
+        # Запуск фонового процесса для получения обновлений
+        subprocess.Popen("python ./services/tray_service.py", shell=True)
 
 if __name__ == "__main__":
     # Initial app
