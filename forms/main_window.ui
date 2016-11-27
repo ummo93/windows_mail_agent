@@ -28,8 +28,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>13</x>
-     <y>310</y>
+     <x>10</x>
+     <y>350</y>
      <width>531</width>
      <height>34</height>
     </rect>
@@ -38,24 +38,11 @@
     <string>Отправить</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="incomeButton">
-   <property name="geometry">
-    <rect>
-     <x>13</x>
-     <y>353</y>
-     <width>531</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Входящие</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>100</y>
      <width>133</width>
      <height>19</height>
     </rect>
@@ -68,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>130</y>
      <width>531</width>
      <height>211</height>
     </rect>
@@ -127,9 +114,34 @@
     <string>Получатель:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>111</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Тема письма:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="subject">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>60</y>
+     <width>381</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Заголовок</string>
+   </property>
+  </widget>
  </widget>
  <tabstops>
-  <tabstop>incomeButton</tabstop>
   <tabstop>pushButton</tabstop>
  </tabstops>
  <resources/>

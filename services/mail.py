@@ -3,7 +3,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-def send_email(recipient, text, server, port, username, password):
+def send_email(recipient, text, server, port, username, password, subject_text="Mail from mail agent!"):
     # отправитель
     me = username
     # получатель
@@ -11,7 +11,7 @@ def send_email(recipient, text, server, port, username, password):
     # текст письма
     text = unicode(text)
     # заголовок письма
-    subj = 'Рассылка'
+    subj = subject_text
 
     # SMTP-сервер
     server = server
