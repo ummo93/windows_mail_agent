@@ -1,4 +1,4 @@
-# windows_mail_agent
+# Mail agent
 Simple mail agent for windows using x64 python, wxPython and PyQt5 lib
 
 #Requirements
