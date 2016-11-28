@@ -4,6 +4,7 @@ import os
 import subprocess
 import time
 import threading
+import signal
 
 RESOURCES_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)) + "/resources/"
 TRAY_TOOLTIP = 'Email notificator'
@@ -44,6 +45,8 @@ class TaskBarIcon(wx.TaskBarIcon):
                                    u"Новых сообщений нет...").Show()
 
     def on_exit(self, event):
+        wx.NotificationMessage(u"Пожалуйста подождите!",
+                               u"Все процессы будут корректно завершены в течение минуты...").Show()
         wx.CallAfter(self.Destroy)
         self.th.join()
 
@@ -58,7 +61,7 @@ class TaskBarIcon(wx.TaskBarIcon):
 
     def check_email(self):
         try:
-            self.let = subprocess.check_call("python ./services/incomes_mail.py", shell=True)
+            self.let = subprocess.Popen("python ./services/incomes_mail.py", shell=True)
             time.sleep(3)
             check_file = open('./tmp/LastMessage.txt')
             length = len(check_file.read())
@@ -77,7 +80,7 @@ class TaskBarIcon(wx.TaskBarIcon):
 def main():
     app = wx.App(redirect=True)
     taskbar = TaskBarIcon()
-    taskbar.set_interval(lambda: taskbar.check_email(), 500)
+    taskbar.set_interval(lambda: taskbar.check_email(), 60)
     app.MainLoop()
 
 if __name__ == '__main__':
