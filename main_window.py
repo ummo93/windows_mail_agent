@@ -5,7 +5,7 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtGui import QIcon
 import wx
 
-toaster = wx.App()
+toaster = wx.PyApp()
 
 qtCreatorFile = './forms/main_window.ui'  # Enter file here.
 
