@@ -83,6 +83,10 @@ for i in data[0].split():
 # Закрываем файлы
 f_message.close()
 
+if os.path.isfile('temp'):
+    os.remove('temp')
+
 # Отключаемся от сервера gmail.com
 gmail.close()
 gmail.logout()
+

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>400</height>
+    <width>835</width>
+    <height>429</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -16,130 +22,86 @@
     <height>400</height>
    </size>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>550</width>
-    <height>400</height>
-   </size>
+  <property name="contextMenuPolicy">
+   <enum>Qt::ActionsContextMenu</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
   </property>
   <property name="windowTitle">
    <string>Отправка email</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>350</y>
-     <width>531</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Отправить</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>133</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Текст сообщения:</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>130</y>
-     <width>531</width>
-     <height>211</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContents</enum>
-   </property>
-   <property name="placeholderText">
-    <string>Введите текст письма</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="recipient">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>20</y>
-     <width>381</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Введите Email получателя</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>133</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Получатель:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>111</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Тема письма:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="subject">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>60</y>
-     <width>381</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Заголовок</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Получатель:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Тема письма:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="subject">
+     <property name="placeholderText">
+      <string>Заголовок</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Отправить</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="recipient">
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Введите Email получателя</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Текст письма</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QPlainTextEdit" name="plainTextEdit">
+        <property name="minimumSize">
+         <size>
+          <width>450</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
+        </property>
+        <property name="placeholderText">
+         <string>Введите текст письма</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <tabstops>
   <tabstop>pushButton</tabstop>
